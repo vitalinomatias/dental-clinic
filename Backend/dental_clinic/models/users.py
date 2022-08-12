@@ -23,7 +23,7 @@ class User(AbstractUser):
     #     return self.username
     
     def __str__(self):
-        return f'{self.first_name} - {self.first_name}'
+        return f'{self.first_name} - {self.last_name}'
     
     # def get_short_name(self):
     #     return self.username

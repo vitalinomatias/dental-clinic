@@ -7,6 +7,8 @@ from rest_framework.routers import DefaultRouter
 
 from .viewsets.specialities import SpecialityViewSet
 from .viewsets.users import UserViewSet
+from .viewsets.patients import PatientViewSet
+from .viewsets.reservations import ReservationViewSet
 #vista de login
 
 
@@ -15,6 +17,8 @@ router = DefaultRouter()
 
 router.register(r'speciality', SpecialityViewSet)
 router.register(r'user', UserViewSet)
+router.register(r'patient', PatientViewSet)
+router.register(r'reservation', ReservationViewSet)
 
 
 urlpatterns = router.urls
