@@ -2,14 +2,14 @@ from rest_framework import viewsets
 from rest_framework.views import Response
 
 #model
-from ..models.reservations import Reservation
+from ..models.record_detail import RecordDetail
 
 #serializer
-from ..serializers.reservations import ReservationSerializers
+from ..serializers.record_detail import RecordDetailSerializers
 
-class ReservationViewSet(viewsets.ModelViewSet):
-    queryset = Reservation.objects.filter(status=True)
-    serializer_class = ReservationSerializers
+class RecordDetailViewSet(viewsets.ModelViewSet):
+    queryset = RecordDetail.objects.all()
+    serializer_class = RecordDetailSerializers
     
     def list(self, request, *args, **kwargs):
         

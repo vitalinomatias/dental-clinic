@@ -13,6 +13,7 @@ class Patient(models.Model):
     residence = models.CharField(max_length=30, blank=True, null=True)
     fono = models.CharField(max_length=50, blank=True, null=True)
     prevision = models.CharField(max_length=50, blank=True, null=True)
+    status = models.BooleanField(default=False)
     
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
