@@ -1,6 +1,7 @@
 from django.db import models
 
-from dental_clinic.models.records import Record
+from .records import Record
+from .specialities import Specialist
 
 class Appointment(models.Model):
     attendance = (
@@ -13,8 +14,10 @@ class Appointment(models.Model):
     type_service = models.BooleanField() #True= Tratamiento, False=Urgencia
     indication = models.CharField(max_length=200, blank=True, null=True)
     statusTicket = models.BooleanField() #True= pagado, False=No pagado
-    statusAttendance = models.CharField(max_length=5, choices=attendance)
+    statusAttendance = models.CharField(max_length=5, choices=attendance) # 0=no asistio, 1=asistio, 2=asisitio tarde
+    specialist = models.ForeignKey(Specialist, on_delete=models.CASCADE)
     date = models.DateField()
+    time = models.TimeField()
     
     def __str__(self):
         return f'{self.record} - {self.date}'

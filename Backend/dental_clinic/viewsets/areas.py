@@ -1,5 +1,6 @@
 from rest_framework import viewsets
 from rest_framework.views import Response
+from rest_framework.permissions import IsAuthenticated
 
 #model
 from ..models.areas import Area
@@ -8,6 +9,7 @@ from ..models.areas import Area
 from ..serializers.areas import AreaSerializer
 
 class AreaViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)  
     queryset = Area.objects.all()
     serializer_class = AreaSerializer
     
@@ -19,3 +21,12 @@ class AreaViewSet(viewsets.ModelViewSet):
             return Response({'status': True, 'message': 'Exito', 'data': data.data})
         except Exception as e:
             return Response({'status': False, 'message': str(e)})
+    
+    def create(self, request, *args, **kwargs):
+        data = super().create(request, *args, **kwargs)
+        return Response({'status': True, 'message': 'Exito', 'data': data.data})
+    
+    def update(self, request, *args, **kwargs):
+        
+        data =  super().update(request, *args, **kwargs)
+        return Response({'status': True, 'message': 'Exito', 'data': data.data})

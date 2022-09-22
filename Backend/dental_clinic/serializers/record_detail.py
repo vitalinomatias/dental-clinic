@@ -12,12 +12,6 @@ class RecordDetailSerializers(serializers.ModelSerializer):
         return {
             'id': instance.id,
             'record': instance.record.id,
-            'record': {
-                'id': instance.record.id,
-                'patient': f' {instance.record.patient.first_name} {instance.record.patient.last_name} ',
-                'specialist': f' {instance.record.specialist.name.first_name} {instance.record.specialist.name.last_name} '
-            },
-            'appointment': instance.appointment.id,
             'piece': {
                 'id': instance.piece.id,
                 'name': instance.piece.name
@@ -28,5 +22,7 @@ class RecordDetailSerializers(serializers.ModelSerializer):
             },
             'diagnosis': instance.diagnosis,
             'treatment': instance.treatment,
-            'date': instance.date
+            'date': instance.date,
+            'cost': instance.cost,
+            'status': instance.status
         }

@@ -8,7 +8,7 @@ from .specialities import Specialist
 
 class Record(models.Model):
     patient  = models.OneToOneField(Patient, on_delete=models.CASCADE)
-    specialist = models.ForeignKey(Specialist, on_delete=models.CASCADE)
+    specialist = models.ForeignKey(Specialist, on_delete=models.CASCADE, blank=True, null=True)
     
     def __str__(self):
         return f'{self.patient}'
