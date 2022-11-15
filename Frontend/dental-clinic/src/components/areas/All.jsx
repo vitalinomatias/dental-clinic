@@ -68,7 +68,7 @@ function AllAreas() {
                         <tr>
                             <th>No.</th>
                             <th>Pieza</th>
-                            <th>Opciones</th>
+                            <th>Opciones-git-</th>
                         </tr>
                     </thead>
                     <tbody>
